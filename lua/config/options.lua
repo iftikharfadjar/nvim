@@ -5,6 +5,9 @@ local set = vim.opt
 set.relativenumber = true
 set.number = true
 
+--For windows
+set.shellslash = true 
+
 
 -- indentation and tabs
 set.tabstop = 4
