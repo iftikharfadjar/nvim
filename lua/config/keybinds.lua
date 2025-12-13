@@ -1,6 +1,9 @@
 -- KEYBINDS
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>t", vim.cmd.terminal)
+vim.keymap.set("n", "<C-s>", vim.cmd.w)
+vim.keymap.set("n", "<C-a>", "ggVG")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Alt Up/Down in vscode
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -35,11 +38,11 @@ vim.keymap.set("n", "<leader>dg", "<cmd>DogeGenerate<cr>")
 -- lint / format php files for LC
 vim.keymap.set("n", "<leader>cc", "<cmd>!php-cs-fixer fix % --using-cache=no<cr>")
 
--- Replace all instances of whatever is under cursor (on line)
+--lReplace all instances of whatever is under cursor (on line)
 vim.keymap.set("n", "<leader>s", [[:s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 
 -- make file executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+--vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- yank into clipboard even if on ssh
 vim.keymap.set('n', '<leader>y', '<Plug>OSCYankOperator')
@@ -53,14 +56,14 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 -- Quickfix list stuff
 vim.keymap.set("n", "<leader>cl", ":cclose<CR>", { silent = true })
 vim.keymap.set("n", "<leader>co", ":copen<CR>", { silent = true })
-vim.keymap.set("n", "<leader>cn", ":cnext<CR>zz")
+vim.keymap.set("n", "<lelkkr>cn", ":cnext<CR>zz")
 vim.keymap.set("n", "<leader>cp", ":cprev<CR>zz")
 vim.keymap.set("n", "<leader>li", ":checkhealth vim.lsp<CR>", { desc = "LSP Info" })
 
 -- run make in current working directory
-vim.keymap.set("n", "<leader>mm", "<cmd>make<CR>")
+--vim.keymap.set("n", "<leader>mm", "<cmd>make<CR>")
 
 -- source file
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+-- vim.keymap.set("n", "<leader><leader>", function()
+--    vim.cmd("so")
+--end)
