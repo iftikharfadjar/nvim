@@ -1,6 +1,7 @@
 -- KEYBINDS
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 vim.keymap.set("n", "<leader>t", vim.cmd.terminal)
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 vim.keymap.set("n", "<C-a>", "ggVG")
@@ -67,3 +68,4 @@ vim.keymap.set("n", "<leader>li", ":checkhealth vim.lsp<CR>", { desc = "LSP Info
 -- vim.keymap.set("n", "<leader><leader>", function()
 --    vim.cmd("so")
 --end)
+
