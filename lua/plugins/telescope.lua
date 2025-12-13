@@ -19,10 +19,12 @@ return {
 
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+        vim.keymap.set('n', '<leader>fr', builtin.registers, {})
+        vim.keymap.set('n', '<leader>fj', builtin.jumplist, {})
         vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
         vim.keymap.set('n', '<leader>fq', builtin.quickfix, {})
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-        vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+        vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'Telescope buffers' })
 
         -- Rip grep + Fzf
         vim.keymap.set('n', '<leader>fg', function()
@@ -43,6 +45,9 @@ return {
         -- find files in vim config
         vim.keymap.set('n', '<leader>fi', function()
             builtin.find_files({ cwd = "~/.config/nvim/" });
+        end)
+        vim.keymap.set('n', '<leader>f', function()
+            builtin.find_files({ cwd = "." });
         end)
     end
 }
