@@ -42,6 +42,11 @@ return {
             builtin.grep_string({})
         end, { desc = "Find current string: " })
 
+        vim.keymap.set('n', '<leader>fw', function()
+            builtin.live_grep({})
+        end, { desc = "Find current string: " })
+
+
         -- find files in vim config
         vim.keymap.set('n', '<leader>fi', function()
             builtin.find_files({ cwd = "~/.config/nvim/" });
