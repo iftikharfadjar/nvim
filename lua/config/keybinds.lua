@@ -40,7 +40,11 @@ vim.keymap.set("n", "<leader>dg", "<cmd>DogeGenerate<cr>")
 vim.keymap.set("n", "<leader>cc", "<cmd>!php-cs-fixer fix % --using-cache=no<cr>")
 
 --lReplace all instances of whatever is under cursor (on line)
-vim.keymap.set("n", "<leader>s", [[:s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>sw", [[:s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>sa", [[:%s/\<<C-r><C-w>\>//gIc<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>s", [[:/\<<C-r><C-w>\>]])
+
+
 
 -- make file executable
 --vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
