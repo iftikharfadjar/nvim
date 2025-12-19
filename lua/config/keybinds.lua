@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 vim.keymap.set("n", "<leader>t", vim.cmd.terminal)
-vim.keymap.set("n", "<C-s>", vim.cmd.w)
+vim.keymap.set({"n","i","v"}, "<C-s>", "<Esc>:w<CR>")
 vim.keymap.set("n", "<C-a>", "gg0VG")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Alt Up/Down in vscode
