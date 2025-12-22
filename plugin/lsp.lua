@@ -69,157 +69,165 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 local caps = require("cmp_nvim_lsp").default_capabilities()
-vim.lsp.config['luals'] = {
-    cmd = { 'lua-language-server' },
-    filetypes = { 'lua' },
-    root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
-    capabilities = caps,
-    settings = {
-        Lua = {
-            runtime = { version = 'LuaJIT' },
-            diagnostics = { globals = { 'vim' } },
-            workspace = {
-                checkThirdParty = false,
-                library = vim.api.nvim_get_runtime_file('', true),
-            },
-            telemetry = { enable = false },
-        },
-    },
-}
-
-vim.lsp.config['cssls'] = {
-    cmd = { 'vscode-css-language-server', '--stdio' },
-    filetypes = { 'css', 'scss', 'less' },
-    root_markers = { 'package.json', '.git' },
-    capabilities = caps,
-    settings = {
-        css = { validate = true },
-        scss = { validate = true },
-        less = { validate = true },
-    },
-}
-
-vim.lsp.config['phpls'] = {
-    cmd = { 'intelephense', '--stdio' },
-    filetypes = { 'php' },
-    root_markers = { 'composer.json', '.git' },
-    capabilities = caps,
-    settings = {
-        intelephense = {
-            files = {
-                maxSize = 5000000, -- default 5MB
-            },
-        },
-    },
-}
-
-vim.lsp.config['ts_ls'] = {
-    cmd = { 'typescript-language-server', '--stdio' },
-    filetypes = {
-        'javascript', 'javascriptreact', 'javascript.jsx',
-        'typescript', 'typescriptreact', 'typescript.tsx',
-    },
-    root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
-    capabilities = caps,
-    settings = {
-        completions = {
-            completeFunctionCalls = true,
-        },
-    },
-}
-
-vim.lsp.config['zls'] = {
-    cmd = { 'zls' },
-    filetypes = { 'zig', 'zir' },
-    root_markers = { 'zls.json', 'build.zig', '.git' },
-    capabilities = caps,
-    settings = {
-        zls = {
-            enable_build_on_save = true,
-            build_on_save_step = "install",
-            warn_style = false,
-            enable_snippets = true,
-        }
-    }
-}
-
-vim.lsp.config['nil_ls'] = {
-    cmd = { 'nil' },
-    filetypes = { 'nix' },
-    root_markers = { 'flake.nix', 'default.nix', '.git' },
-    capabilities = caps,
-    settings = {
-        ['nil'] = {
-            formatting = {
-                command = { "alejandra" }
-            }
-        }
-    }
-}
-
-vim.lsp.config['rust_analyzer'] = {
-    cmd = { 'rust-analyzer' },
-    filetypes = { 'rust' },
-    root_markers = { 'Cargo.toml', 'rust-project.json', '.git' },
-    capabilities = caps,
-    settings = {
-        ['rust-analyzer'] = {
-            cargo = { allFeatures = true },
-            formatting = {
-                command = { "rustfmt" }
-            },
-        },
-    },
-}
-
--- C / C++ via clangd
-vim.lsp.config['clangd'] = {
-    cmd = {
-        'clangd',
-        '--background-index',
-        '--clang-tidy',
-        '--header-insertion=never',
-        '--completion-style=detailed',
-        '--query-driver=/nix/store/*-gcc-*/bin/gcc*,/nix/store/*-clang-*/bin/clang*,/run/current-system/sw/bin/cc*',
-    },
-    filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
-    root_markers = { 'compile_commands.json', '.clangd', 'configure.ac', 'Makefile', '.git' },
-    capabilities = caps,
-    init_options = {
-        fallbackFlags = { '-std=c23' }, -- Default to C23
-    },
-}
-
-vim.lsp.config['jsonls'] = {
-    cmd = { 'vscode-json-languageserver', '--stdio' },
-    filetypes = { 'json', 'jsonc' },
-    root_markers = { 'package.json', '.git', 'config.jsonc' },
-    capabilities = caps,
-}
-
-vim.lsp.config['hls'] = {
-    cmd = { 'haskell-language-server-wrapper', '--lsp' },
-    filetypes = { 'haskell', 'lhaskell' },
-    root_markers = { 'stack.yaml', 'cabal.project', 'package.yaml', '*.cabal', 'hie.yaml', '.git' },
-    capabilities = caps,
-    settings = {
-        haskell = {
-            formattingProvider = 'fourmolu',
-            plugin = {
-                semanticTokens = { globalOn = false }
-            },
-        },
-    },
-}
-
-vim.filetype.add({
-    extension = {
-        h = 'c',
-    },
-})
-
+-- vim.lsp.config['luals'] = {
+--     cmd = { 'lua-language-server' },
+--     filetypes = { 'lua' },
+--     root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+--     capabilities = caps,
+--     settings = {
+--         Lua = {
+--             runtime = { version = 'LuaJIT' },
+--             diagnostics = { globals = { 'vim' } },
+--             workspace = {
+--                 checkThirdParty = false,
+--                 library = vim.api.nvim_get_runtime_file('', true),
+--             },
+--             telemetry = { enable = false },
+--         },
+--     },
+-- }
+--
+-- vim.lsp.config['cssls'] = {
+--     cmd = { 'vscode-css-language-server', '--stdio' },
+--     filetypes = { 'css', 'scss', 'less' },
+--     root_markers = { 'package.json', '.git' },
+--     capabilities = caps,
+--     settings = {
+--         css = { validate = true },
+--         scss = { validate = true },
+--         less = { validate = true },
+--     },
+-- }
+--
+-- vim.lsp.config['phpls'] = {
+--     cmd = { 'intelephense', '--stdio' },
+--     filetypes = { 'php' },
+--     root_markers = { 'composer.json', '.git' },
+--     capabilities = caps,
+--     settings = {
+--         intelephense = {
+--             files = {
+--                 maxSize = 5000000, -- default 5MB
+--             },
+--         },
+--     },
+-- }
+--
+-- vim.lsp.config['ts_ls'] = {
+--     cmd = { 'typescript-language-server', '--stdio' },
+--     filetypes = {
+--         'javascript', 'javascriptreact', 'javascript.jsx',
+--         'typescript', 'typescriptreact', 'typescript.tsx',
+--     },
+--     root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
+--     capabilities = caps,
+--     settings = {
+--         completions = {
+--             completeFunctionCalls = true,
+--         },
+--     },
+-- }
+--
+-- vim.lsp.config['zls'] = {
+--     cmd = { 'zls' },
+--     filetypes = { 'zig', 'zir' },
+--     root_markers = { 'zls.json', 'build.zig', '.git' },
+--     capabilities = caps,
+--     settings = {
+--         zls = {
+--             enable_build_on_save = true,
+--             build_on_save_step = "install",
+--             warn_style = false,
+--             enable_snippets = true,
+--         }
+--     }
+-- }
+--
+-- vim.lsp.config['nil_ls'] = {
+--     cmd = { 'nil' },
+--     filetypes = { 'nix' },
+--     root_markers = { 'flake.nix', 'default.nix', '.git' },
+--     capabilities = caps,
+--     settings = {
+--         ['nil'] = {
+--             formatting = {
+--                 command = { "alejandra" }
+--             }
+--         }
+--     }
+-- }
+--
+-- vim.lsp.config['rust_analyzer'] = {
+--     cmd = { 'rust-analyzer' },
+--     filetypes = { 'rust' },
+--     root_markers = { 'Cargo.toml', 'rust-project.json', '.git' },
+--     capabilities = caps,
+--     settings = {
+--         ['rust-analyzer'] = {
+--             cargo = { allFeatures = true },
+--             formatting = {
+--                 command = { "rustfmt" }
+--             },
+--         },
+--     },
+-- }
+--
+-- -- C / C++ via clangd
+-- vim.lsp.config['clangd'] = {
+--     cmd = {
+--         'clangd',
+--         '--background-index',
+--         '--clang-tidy',
+--         '--header-insertion=never',
+--         '--completion-style=detailed',
+--         '--query-driver=/nix/store/*-gcc-*/bin/gcc*,/nix/store/*-clang-*/bin/clang*,/run/current-system/sw/bin/cc*',
+--     },
+--     filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+--     root_markers = { 'compile_commands.json', '.clangd', 'configure.ac', 'Makefile', '.git' },
+--     capabilities = caps,
+--     init_options = {
+--         fallbackFlags = { '-std=c23' }, -- Default to C23
+--     },
+-- }
+--
+-- vim.lsp.config['jsonls'] = {
+--     cmd = { 'vscode-json-languageserver', '--stdio' },
+--     filetypes = { 'json', 'jsonc' },
+--     root_markers = { 'package.json', '.git', 'config.jsonc' },
+--     capabilities = caps,
+-- }
+--
+-- vim.lsp.config['hls'] = {
+--     cmd = { 'haskell-language-server-wrapper', '--lsp' },
+--     filetypes = { 'haskell', 'lhaskell' },
+--     root_markers = { 'stack.yaml', 'cabal.project', 'package.yaml', '*.cabal', 'hie.yaml', '.git' },
+--     capabilities = caps,
+--     settings = {
+--         haskell = {
+--             formattingProvider = 'fourmolu',
+--             plugin = {
+--                 semanticTokens = { globalOn = false }
+--             },
+--         },
+--     },
+-- }
+--
+-- vim.filetype.add({
+--     extension = {
+--         h = 'c',
+--     },
+-- })
+--
 for name, _ in pairs(vim.lsp.config) do
-    if name ~= '*' then  -- Skip the wildcard config
+    if name ~= '*' then -- Skip the wildcard config
         vim.lsp.enable(name)
     end
 end
+
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("astro")
+vim.lsp.enable("gopls")
+vim.lsp.enable("golangci_lint_ls")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("tailwindcss")
