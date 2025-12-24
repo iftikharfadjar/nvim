@@ -3,8 +3,10 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>")
 vim.keymap.set("n", "<leader>t", vim.cmd.terminal)
-vim.keymap.set({"n","i","v"}, "<C-s>", "<Esc>:w<CR>")
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<Esc>:w<CR>")
 vim.keymap.set("n", "<C-a>", "gg0VG")
+vim.keymap.set("n", "<leader>h", "<C-w>h")
+vim.keymap.set("n", "<leader>l", "<C-w>l")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Alt Up/Down in vscode
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -72,4 +74,3 @@ vim.keymap.set("n", "<leader>li", ":checkhealth vim.lsp<CR>", { desc = "LSP Info
 -- vim.keymap.set("n", "<leader><leader>", function()
 --    vim.cmd("so")
 --end)
-
