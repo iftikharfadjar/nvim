@@ -1,3 +1,4 @@
-require('config.options')
-require('config.keybinds')
-require('config.lazy')
+require("config.lazy")
+require("config.commands")
+require("config.filetypes")
+require("config.utils")
