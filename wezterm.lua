@@ -25,7 +25,7 @@ end
 config.color_scheme = 'Oceanic Next (Gogh)'
 -- This is my chosen font, we will get into installing fonts on windows later
 --config.font = wezterm.font('Hack Nerd Font')
-config.font_size = 8
+config.font_size = 10
 config.launch_menu = launch_menu
 -- makes my cursor blink 
 config.default_cursor_style = 'BlinkingBar'

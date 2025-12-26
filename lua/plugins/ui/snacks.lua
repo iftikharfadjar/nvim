@@ -13,4 +13,19 @@ return {
       desc = "Notification History",
     },
   },
+  opts = {
+    picker = {
+      sources = {
+        explorer = {
+          win = {
+            list = {
+              wo = {
+                relativenumber = true,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
 }
