@@ -2,7 +2,7 @@
 -- NOTE: Opencode
 return {
   "sudo-tee/opencode.nvim",
-  enabled = true,
+  enabled = false,
   event = "VeryLazy",
   opts = {
     ui = {
