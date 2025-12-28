@@ -6,6 +6,12 @@ local utils = require("config.utils")
 -- Yank All Text
 vim.keymap.set("n", "<leader>y", "<cmd>%y+<cr>", { desc = "Yank All Text", silent = true })
 
+-- Paste All Text
+vim.keymap.set("n", "<leader>p", "gg0VGp<cr>", { desc = "Paste All Text", silent = true })
+
+-- Select All Text
+vim.keymap.set("n", "<leader>ba", "gg0VG", { desc = "Select All Text", silent = true })
+
 -- Delete All Text
 vim.keymap.set("n", "<leader>bR", "<cmd>%d+<cr>", { desc = "Remove All Text", silent = true })
 
