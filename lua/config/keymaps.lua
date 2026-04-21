@@ -30,6 +30,9 @@ vim.keymap.set("n", "<Up>", "<cmd>tabnew<CR>", { desc = "General | New tab", sil
 -- Close tab
 vim.keymap.set("n", "<Down>", "<cmd>tabclose<CR>", { desc = "General | Close tab", silent = true })
 
+-- Escape
+vim.keymap.set("n", "jk", "<Esc>", { desc = "Escape", silent = true })
+
 -- Run Code
 vim.keymap.set("n", "<leader>ce", function()
   utils.run_code()
